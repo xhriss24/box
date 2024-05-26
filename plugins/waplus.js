@@ -557,7 +557,7 @@ amd(
     }
   }
 );
-smd({
+cmd({
     pattern: "vv",
     desc: "download viewOnce Message.",
     category: "whatsapp",
