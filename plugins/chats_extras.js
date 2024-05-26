@@ -101,7 +101,7 @@ let {
     desc: "Check if the bot is active",
     category: "misc",
     filename: __filename
-  }, async (message) => {
+  }, async (message, match, { gurl, smdBuffer }) => {
     try {
       let responseText = "*BOT IS CURRENTLY ACTIVE!*";
       await message.reply(responseText, {
@@ -113,9 +113,10 @@ let {
             thumbnail: await smdBuffer(await message.getpp())
           }
         }
-      }, "astro");
+      });
     } catch (error) {
       console.error(error);
     }
   });
+  
   
