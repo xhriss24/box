@@ -119,12 +119,11 @@ smd({
   }
 });
 
-const formatBytes = (bytes) => {
-  if (bytes === 0) return '0 Bytes';
-  const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+const formatRuntime = (uptime) => {
+  const hours = Math.floor(uptime / 3600);
+  const minutes = Math.floor((uptime % 3600) / 60);
+  const seconds = Math.floor(uptime % 60);
+  return `${hours}h ${minutes}m ${seconds}s`;
 };
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -153,16 +152,17 @@ smd({
     const end = performance.now();
     const responseTime = end - start;
 
-    const runtime = process.uptime();
+    const runtime = formatRuntime(process.uptime());
     const ramInfo = `${formatBytes(os.totalmem() - os.freemem())} / ${formatBytes(os.totalmem())}`;
     const cpuUsageInfo = cpuInfo[0] ? `${cpuInfo[0].model.trim()} (${cpuUsage.speed} MHZ)\n${Object.keys(cpuUsage.times).map(key => `-${key.padEnd(6)}: ${(cpuUsage.times[key] * 100 / cpuUsage.total).toFixed(2)}%`).join("\n")}` : "";
 
-    const response = `\nResponse Speed ${responseTime.toFixed(4)} Second\n${runtime(process.uptime())}\n\n💻 Info Server\nRAM: ${ramInfo}\n\n_NodeJS Memory Usage_\n${Object.keys(usage).map((key, index, array) => `${key.padEnd(Math.max(...array.map(item => item.length)), " ")}: ${formatBytes(usage[key])}`).join("\n")}\n\n${cpuUsageInfo}\n\n`;
+    const response = `\nResponse Speed ${responseTime.toFixed(4)} Second\nRuntime : ${runtime}\n\n💻 Info Server\nRAM: ${ramInfo}\n\n_NodeJS Memory Usage_\n${Object.keys(usage).map((key, index, array) => `${key.padEnd(Math.max(...array.map(item => item.length)), " ")}: ${formatBytes(usage[key])}`).join("\n")}\n\n${cpuUsageInfo}\n\n`;
     await message.reply(response);
   } catch (error) {
     await message.error(`${error}\n\ncommand: ping2`, error, false);
   }
 });
+
 
 
 
