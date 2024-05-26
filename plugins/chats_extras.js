@@ -29,7 +29,7 @@ let {
         return await message.reply("_No messages found!_");
       }
       const userListText = Object.entries(activeUsers).map(([userName, messageCount]) => `\t*${(userName?.split("\n").join(" ") || "unknown")}*  ➪  _${messageCount}_`).join("\n");
-      const responseText = `*LIST OF ACTIVE USERS IN CURRENT CHAT*\n_Note: Sometimes data will be reset when the bot restarts!_\n\n*Total Users: _${activeUserList.length}_*\n\n*USERNAME ➪ MESSAGE COUNT(s)*\n${userListText}\n\n${Config.caption}`.trim();
+      const responseText = `*LIST OF ACTIVE USERS IN CURRENT CHAT*\n*Total Users: _${activeUserList.length}_*\n\n*USERNAME ➪ MESSAGE COUNT(s)*\n${userListText}\n\n${Config.caption}`.trim();
       await message.send(responseText, {
         contextInfo: {
           ...(await message.bot.contextInfo("ACTIVE USERS", message.senderName))
@@ -93,6 +93,29 @@ let {
     } catch (error) {
       console.error(error);
       await message.error(error + "\n\ncommand: cmdused", error, "*ERROR!*");
+    }
+  });
+  
+  smd({
+    cmdname: "test",
+    desc: "Check if the bot is active",
+    category: "misc",
+    filename: __filename
+  }, async (message) => {
+    try {
+      let responseText = "*BOT IS CURRENTLY ACTIVE!*";
+      await message.reply(responseText, {
+        contextInfo: {
+          externalAdReply: {
+            title: "ACTIVE",
+            sourceUrl: gurl,
+            showAdAttribution: true,
+            thumbnail: await smdBuffer(await message.getpp())
+          }
+        }
+      }, "astro");
+    } catch (error) {
+      console.error(error);
     }
   });
   
