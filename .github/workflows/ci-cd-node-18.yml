@@ -1,0 +1,35 @@
+name: Node.js CI/CD Workflow with Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.x'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Tests and Kill Process
+        run: |
+          npm test &
+          PID=$!
+          sleep 5  # Adjust as needed to give the process time to start
+          kill $PID
+
+
+      - name: Deploy Application
+        if: success()
+        run: |
+          # Installs, Tests & Kill The Process
