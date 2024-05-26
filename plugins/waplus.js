@@ -557,13 +557,13 @@ amd(
     }
   }
 );
-cmd({
+smd({
     pattern: "vv",
     desc: "download viewOnce Message.",
     category: "whatsapp",
     use: "<query>",
     filename: __filename
-   }, async (event, query) => {
+  }, async (event, query) => {
     try {
       let viewOnceMessage = false;
       if (event.reply_message) {
@@ -583,7 +583,7 @@ cmd({
       };
       let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(viewOnceMessage.msg);
       await event.bot.sendMessage(
-        event.jid,
+        event.sender, // Send to user's personal chat
         {
           [viewOnceMessage.mtype2.split("Mess")[0]]: {
             url: downloadedMedia,
@@ -595,4 +595,4 @@ cmd({
     } catch (error) {
       await event.error(error + "\n\ncommand: vv", error);
     }
-   });
+  });
