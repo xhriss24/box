@@ -119,3 +119,95 @@ smd({
   }
 });
 
+smd({
+  cmdname: "ping2",
+  type: "misc",
+  info: "Get random poetry lines"
+}, async (message, match) => {
+  try {
+    const usage = process.memoryUsage();
+    const cpuInfo = os.cpus().map(cpu => {
+      cpu.total = Object.values(cpu.times).reduce((total, time) => total + time, 0);
+      return cpu;
+    });
+    const cpuUsage = cpuInfo.reduce((total, cpu, index, { length }) => {
+      total.total += cpu.total;
+      total.speed += cpu.speed / length;
+      Object.keys(cpu.times).forEach(key => total.times[key] += cpu.times[key]);
+      return total;
+    }, { speed: 0, total: 0, times: { user: 0, nice: 0, sys: 0, idle: 0, irq: 0 } });
+
+    const start = performance.now();
+    await delay(100);
+    const end = performance.now();
+    const responseTime = end - start;
+
+    const runtime = process.uptime();
+    const ramInfo = `${formatBytes(os.totalmem() - os.freemem())} / ${formatBytes(os.totalmem())}`;
+    const cpuUsageInfo = cpuInfo[0] ? `${cpuInfo[0].model.trim()} (${cpuUsage.speed} MHZ)\n${Object.keys(cpuUsage.times).map(key => `-${key.padEnd(6)}: ${(cpuUsage.times[key] * 100 / cpuUsage.total).toFixed(2)}%`).join("\n")}` : "";
+
+    const response = `\nResponse Speed ${responseTime.toFixed(4)} Second\n${runtime(process.uptime())}\n\n💻 Info Server\nRAM: ${ramInfo}\n\n_NodeJS Memory Usage_\n${Object.keys(usage).map((key, index, array) => `${key.padEnd(Math.max(...array.map(item => item.length)), " ")}: ${formatBytes(usage[key])}`).join("\n")}\n\n${cpuUsageInfo}\n\n`;
+    await message.reply(response);
+  } catch (error) {
+    await message.error(`${error}\n\ncommand: ping2`, error, false);
+  }
+});
+
+smd({
+  cmdname: "myip",
+  alias: ["ip"],
+  type: "misc",
+  info: "Get random poetry lines"
+}, async (message, match) => {
+  try {
+    const { data } = await axios.get("https://api.ipify.org/");
+    message.send(data ? `*Bot's IP address is : _${data}_*` : "_No response from server!_");
+  } catch (error) {
+    await message.error(`${error}\n\ncommand: myip`, error, false);
+  }
+});
+
+const takeScreenshot = async (url, device = "desktop") => {
+  try {
+    const response = await axios({
+      url: "https://www.screenshotmachine.com/capture.php",
+      method: "POST",
+      data: new URLSearchParams({ url, device, cacheLimit: 0 }),
+      headers: { "content-type": "application/x-www-form-urlencoded; charset=UTF-8" }
+    });
+    if (response.data.status === "success") {
+      const cookies = response.headers["set-cookie"];
+      const { data } = await axios.get(`https://www.screenshotmachine.com/${response.data.link}`, {
+        headers: { cookie: cookies.join("") },
+        responseType: "arraybuffer"
+      });
+      return { status: 200, result: data };
+    } else {
+      return { status: 404, message: response.data };
+    }
+  } catch (error) {
+    return { status: 500, message: error.message };
+  }
+};
+
+smd({
+  cmdname: "ss",
+  alias: ["webss", "fullss"],
+  type: "misc",
+  info: "Get random poetry lines"
+}, async (message, match) => {
+  try {
+    const url = match.split(" ")[0].trim();
+    if (!url) {
+      return await message.reply(`*Need URL! Use ${prefix}ss https://github.com/Astropeda/Asta-Md*`);
+    }
+    const screenshot = await takeScreenshot(url);
+    if (screenshot.status === 200) {
+      await message.send(screenshot.result, { caption: Config.caption }, "smdimg", message);
+    } else {
+      await message.send("_No response from server!_");
+    }
+  } catch (error) {
+    await message.error(`${error}\n\ncommand: ss`, error, "*Request Denied!*");
+  }
+});
