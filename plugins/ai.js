@@ -126,7 +126,7 @@ UserFunction(
 );
 UserFunction({
   cmdname: "alexa",
-  category: "new",
+  category: "ai",
   use: "[text]",
   filename: __filename,
   info: "chat with simsimi alexa ai!"
