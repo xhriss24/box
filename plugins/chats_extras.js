@@ -268,7 +268,7 @@ smd({
       return await event.reply("_Reply to an image/video message!_");
     }
     if (!args) {
-      return await event.reply("_Need fileName, Example: document suhail | caption_");
+      return await event.reply("_Need fileName, Example: document astro | caption_");
     }
     let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(msgToConvert);
     let separator = args.includes(":") ? ":" : args.includes(";") ? ";" : "|";
