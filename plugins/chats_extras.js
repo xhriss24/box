@@ -119,13 +119,21 @@ smd({
   }
 });
 
+const formatBytes = (bytes) => {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+};
+
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 smd({
   cmdname: "ping2",
   alias: ["botstatus", "statusbot", "p2"],
   type: "new",
-  info: "get randome poetry lines"
+  info: "get random poetry lines"
 }, async (message, match) => {
   try {
     const usage = process.memoryUsage();
@@ -155,6 +163,7 @@ smd({
     await message.error(`${error}\n\ncommand: ping2`, error, false);
   }
 });
+
 
 
 smd({
