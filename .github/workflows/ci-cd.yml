@@ -21,10 +21,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
+      - name: Run Tests and Kill Process
         run: |
-          npm test
-          kill $(lsof -t -i:3000)
+          npm test &
+          PID=$!
+          sleep 5  # Adjust as needed to give the process time to start
+          kill $PID
+
 
       - name: Deploy Application
         if: success()
