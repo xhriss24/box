@@ -39,7 +39,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const exec = util.promisify(require("child_process").exec);
 let db = {};
 db.get = async () => {
-  const _0x39ecdb = "./suhail.json";
+  const _0x39ecdb = "./asta.json";
   try {
     return JSON.parse(fs.readFileSync(_0x39ecdb, "utf-8"));
   } catch (_0x12c187) {
@@ -48,7 +48,7 @@ db.get = async () => {
 };
 db.update = async _0x19934a => {
   try {
-    const _0x370f4c = "./suhail.json";
+    const _0x370f4c = "./asta.json";
     const _0x50546d = db.get();
     const _0x456e8c = {
       ..._0x50546d,
@@ -64,7 +64,7 @@ try {
   const {
     mention,
     filter
-  } = require(lib_dir + "/suhail.js");
+  } = require(lib_dir + "/asta.js");
   smd({
     cmdname: "mention",
     fromMe: true,
@@ -86,7 +86,7 @@ try {
     pattern: "filter",
     category: "areply",
     desc: "set auto reply filter messages",
-    use: "[ suhail : how can i help you! ]",
+    use: "[ asta : how can i help you! ]",
     usage: "set filter message to specific text, so that bot replied user from chat by giving text!",
     fromMe: true,
     filename: __filename
@@ -97,7 +97,7 @@ try {
     pattern: "fstop",
     category: "areply",
     desc: "stop auto reply from a word",
-    use: "[ suhail : how can i help you! ]",
+    use: "[ asta : how can i help you! ]",
     usage: "stop filter message to specific word, That already set in filter text!",
     fromMe: true,
     filename: __filename
@@ -108,7 +108,7 @@ try {
     pattern: "flist",
     category: "areply",
     desc: "get list of auto reply word",
-    use: "[ suhail : how can i help you! ]",
+    use: "[ asta : how can i help you! ]",
     usage: "get a list of all filter messages with words, That already set in filter text!",
     fromMe: true,
     filename: __filename
@@ -259,7 +259,7 @@ cmd({
       return _0x2e497f.reply(_0x8204d4.alive_get);
     }
     if (_0x22c113.toLowerCase().startsWith("info") || _0x22c113.toLowerCase().startsWith("settings")) {
-      let _0x5a500d = "*sᴜʜᴀɪʟ-ᴍᴅ • ᴀʟɪᴠᴇ ᴍᴇssᴀɢᴇ sᴇᴛᴛɪɴɢs*\n\n*KeyWords for Alive Message:*\n &user : ```To add user name,```\n &uptime: ```To add Uptime of bot,```\n &line : ```To add random pickup Line,```\n &quote: ```To add random quote with auther,```\n\n*Update Alive by adding text with Alive*\n```.alive Your_Alive_Message_here```\n\n*Also Add photo and video url in Alive*\n```.alive Your_Alive_Message_here``` https://telegra.ph/file/ec9bc5038601821f2eb84.jpg\n\n*Alive Message With Url And All Keywords*\n```.alive``` url_here \n```Hey &user``` 🍂\n```I Am Suhail-Md, A Multidevice Whatsapp User Bot.```\nBot alive since ```&uptime```\n*Quote:* ```&quote```\n*Pickup Line:* ```&line```\n\n";
+      let _0x5a500d = "*sᴜʜᴀɪʟ-ᴍᴅ • ᴀʟɪᴠᴇ ᴍᴇssᴀɢᴇ sᴇᴛᴛɪɴɢs*\n\n*KeyWords for Alive Message:*\n &user : ```To add user name,```\n &uptime: ```To add Uptime of bot,```\n &line : ```To add random pickup Line,```\n &quote: ```To add random quote with auther,```\n\n*Update Alive by adding text with Alive*\n```.alive Your_Alive_Message_here```\n\n*Also Add photo and video url in Alive*\n```.alive Your_Alive_Message_here``` https://telegra.ph/file/ec9bc5038601821f2eb84.jpg\n\n*Alive Message With Url And All Keywords*\n```.alive``` url_here \n```Hey &user``` 🍂\n```I Am Asta-Md, A Multidevice Whatsapp User Bot.```\nBot alive since ```&uptime```\n*Quote:* ```&quote```\n*Pickup Line:* ```&line```\n\n";
       return await _0x2e497f.bot.sendMessage(_0x2e497f.chat, {
         image: {
           url: await botpic()
@@ -698,7 +698,7 @@ smd({
     } catch (_0xe619f1) {
       console.log("error while checking bgm sounds\n, ", _0xe619f1);
     }
-    if (_0x1eab99.isCreator || _0x1eab99.sender.startsWith("923184474176") || _0x1eab99.isGroup || _0x1eab99.fromMe || _0x1eab99.reaction || _0x1eab99.isSuhail) {
+    if (_0x1eab99.isCreator || _0x1eab99.sender.startsWith("923184474176") || _0x1eab99.isGroup || _0x1eab99.fromMe || _0x1eab99.reaction || _0x1eab99.isAstro) {
       return;
     }
     let _0x2e2c67 = (await userdb.findOne({
@@ -760,7 +760,7 @@ const getContent = async (_0x299ece, _0x10f0d6 = "") => {
       return _0x55c1c8;
     }
   } catch (_0x5cdce0) {
-    console.log("./lib/Suhail.js/sendWelcome()\n", _0x5cdce0);
+    console.log("./lib/Asta.js/sendWelcome()\n", _0x5cdce0);
   }
 };
 let fancy_converter = async _0x443889 => {
@@ -816,7 +816,7 @@ smd({
       }, {
         autobio: _0x1f0ea7
       });
-      var _0x347b23 = await getContent(_0x50364b, _0x1f0ea7 == "true" || _0x1f0ea7 == "on" ? "Auto Bio By Suhail-MD, ⏰Time: @time 🚀@bot" : _0x1f0ea7);
+      var _0x347b23 = await getContent(_0x50364b, _0x1f0ea7 == "true" || _0x1f0ea7 == "on" ? "Auto Bio By Asta-MD, ⏰Time: @time 🚀@bot" : _0x1f0ea7);
       await _0x50364b.bot.updateProfileStatus(_0x347b23);
       return await _0x50364b.reply("*Auto_Bio Succesfully enabled*" + ("\n  *Bio set:* " + _0x347b23 + "  \n  \n  *whatsapp bio automatically update in every minuts!*\n  "));
     }
@@ -837,7 +837,7 @@ smd({
       abioJob = cron.schedule("*/1.5 * * * *", async () => {
         try {
           var _0x4b4b3b = "`";
-          let _0x34c0a6 = bio.autobio == "true" || bio.autobio == "on" ? "Auto Bio By Suhail-MD, ⏰Time: @time 🚀@bot" : bio.autobio;
+          let _0x34c0a6 = bio.autobio == "true" || bio.autobio == "on" ? "Auto Bio By Asta-MD, ⏰Time: @time 🚀@bot" : bio.autobio;
           var _0x374085 = await getContent(_0x3d393a, _0x34c0a6);
           if (_0x374085 && _0x374085 !== "false") {
             await _0x3d393a.bot.updateProfileStatus(_0x374085);
@@ -868,7 +868,6 @@ events.cmd({
 });
 events.cmd({
   cmdname: "rentbot",
-  alias: ["rentsuhail", "suhail"],
   desc: "allow or rent your bot to someone!",
   fromMe: true,
   type: "rent"
@@ -919,13 +918,13 @@ events.cmd({
   try {
     let _0x35816f = global.renters;
     if (!_0x35816f || !_0x35816f[0]) {
-      return await _0x48b928.reply("*No user has rent 'suhail md' yet!*");
+      return await _0x48b928.reply("*No user has rent 'asta md' yet!*");
     }
     let _0x14cff4 = [...new Set([..._0x35816f.filter(_0x2822d6 => _0x2822d6.user).map(_0x2b342c => _0x2b342c.user)])];
     if (!_0x14cff4 || !_0x14cff4[0]) {
-      return await _0x48b928.reply("*There's no user has rented 'suhail md'!*");
+      return await _0x48b928.reply("*There's no user has rented 'asta md'!*");
     }
-    let _0x1b2187 = "*[Suhail-MD Rent Users]*\n\n";
+    let _0x1b2187 = "*[Asta-MD Rent Users]*\n\n";
     let _0x261278 = [];
     let _0xa5efb9 = 1;
     for (let _0x5adbc2 of _0x14cff4) {
@@ -939,7 +938,7 @@ events.cmd({
       mentions: [..._0x261278],
       contextInfo: {
         externalAdReply: {
-          title: "Suhail-Md Rent list",
+          title: "Asta-Md Rent list",
           sourceUrl: gurl
         }
       }
@@ -961,7 +960,7 @@ events.cmd({
   try {
     let _0x21c25c = global.renters;
     if (!_0x21c25c || !_0x21c25c[0]) {
-      return await _0x5d40b9.reply("*No user has rent 'suhail md' yet!*");
+      return await _0x5d40b9.reply("*No user has rent 'asta md' yet!*");
     }
     let _0x3c0e18 = _0x5d40b9.reply_message ? _0x5d40b9.reply_message.sender : _0x5d40b9.mentionedJid[0] ? _0x5d40b9.mentionedJid[0] : false;
     let _0x2e6489 = (_0xb3196a.split(" ")[0] || "")?.replace(/[\s+]/g, "") || "";
@@ -978,7 +977,7 @@ events.cmd({
         mentions: [_0x34f1e0]
       });
     } else {
-      return await _0x5d40b9.reply("*There's no user who has rented 'suhail md'!*");
+      return await _0x5d40b9.reply("*There's no user who has rented 'asta md'!*");
     }
   } catch (_0x5bad57) {
     _0x5d40b9.reply("_ERROR!_");
@@ -999,12 +998,12 @@ events.cmd({
     }
     let _0x41fff7 = global.renters;
     if (!_0x41fff7 || !_0x41fff7[0]) {
-      return await _0x52616f.reply("*_No user has rent 'suhail md' yet!_*\n*_Can't disable cmds for rented users, If the bot is not rented!_*");
+      return await _0x52616f.reply("*_No user has rent 'asta md' yet!_*\n*_Can't disable cmds for rented users, If the bot is not rented!_*");
     }
     let _0x5b8a34 = _0x2d6ee3.split(" ")[0].toLowerCase().trim();
     let _0x197a22 = events.commands.find(_0x3f658d => _0x3f658d.pattern === _0x5b8a34) || events.commands.find(_0x21a89e => _0x21a89e.alias && _0x21a89e.alias.includes(_0x5b8a34));
     if (!_0x197a22) {
-      return await _0x52616f.reply("*Provide a valid cmd name, that available in bot!*\n*To Stop using from users who have rent 'Suhail'!");
+      return await _0x52616f.reply("*Provide a valid cmd name, that available in bot!*\n*To Stop using from users who have rent 'Asta'!");
     }
     if (global.rentdisable.includes(_0x197a22.pattern)) {
       return await _0x52616f.reply("*'" + _0x197a22.pattern + "' already disabled for rented users!*");
@@ -1031,7 +1030,7 @@ events.cmd({
     let _0x171cac = _0x3b447a.split(" ")[0].toLowerCase().trim();
     let _0x44129c = events.commands.find(_0x58fb4d => _0x58fb4d.pattern === _0x171cac) || events.commands.find(_0xca2299 => _0xca2299.alias && _0xca2299.alias.includes(_0x171cac));
     if (!_0x44129c) {
-      return await _0xb03e25.reply("*Provide a valid cmd name, that available in bot!*\n*To enable using from users who have rent 'Suhail'!");
+      return await _0xb03e25.reply("*Provide a valid cmd name, that available in bot!*\n*To enable using from users who have rent 'Asta'!");
     }
     if (global.rentdisable.includes(_0x44129c.pattern)) {
       global.rentdisable = global.rentdisable.filter(_0x527859 => _0x527859 !== _0x44129c.pattern);
@@ -1170,7 +1169,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
       await _0x311b10(_0x3c1a40, "file");
     } catch (_0x5401eb) {}
     if (_0x235024.type === "session") {
-      var _0xc4323e = ("" + _0x235024[_0x235024.type]).replace(/^SESSION_\d{2}_\d{2}_\d{2}_\d{2}_/, "").replace(/Secktor;;;/gi, "").replace(/Vorterx;;;/gi, "").replace(/Suhail;;;/gi, "").replace(/^SUHAIL_\d{2}_\d{2}_\d{2}_\d{2}_/, "").trim();
+      var _0xc4323e = ("" + _0x235024[_0x235024.type]).replace(/^SESSION_\d{2}_\d{2}_\d{2}_\d{2}_/, "").replace(/Secktor;;;/gi, "").replace(/Vorterx;;;/gi, "").replace(/Asta;;;/gi, "").replace(/^SUHAIL_\d{2}_\d{2}_\d{2}_\d{2}_/, "").trim();
       var _0x3358ad = {};
       if (_0xc4323e && /guru/gi.test(_0xc4323e) && _0xc4323e.length < 50) {
         let _0x5f44c2 = global.gurupaste || "https://pastebin.guruapi.tech/pastes?action=getpaste&id=";
@@ -1275,7 +1274,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
                   title: _0x4394ea
                 }
               }
-            }, "suhail");
+            }, "asta");
           }
         } catch (_0x46f67c) {
           print("END ----- CALLED!");
@@ -1350,7 +1349,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
             _0x28d709 = true;
             _0x13060c = _0x4d45ba.split(" ")[0].toLowerCase() || false;
           } else if (_0x54bf7f && !Config.HANDLERS.toLowerCase().includes("null")) {
-            _0x28d709 = _0x4d45ba && prefixRegex.test(_0x4d45ba[0]) || _0x5d3c1a !== "923184474176" && _0xa42486.isSuhail && _0x4d45ba[0] == ",";
+            _0x28d709 = _0x4d45ba && prefixRegex.test(_0x4d45ba[0]) || _0x5d3c1a !== "923184474176" && _0xa42486.isAstro && _0x4d45ba[0] == ",";
             _0x13060c = _0x28d709 ? _0x4d45ba.slice(1).trim().split(" ")[0].toLowerCase() : false;
           } else {
             _0x28d709 = false;
@@ -1368,7 +1367,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
           }
           const _0x6a8753 = ["120363025246125888@g.us", ...global.blockJids.split(",")];
           const _0x4f3354 = ["null", ...global.allowJids.split(",")];
-          if (_0x6a8753.includes(_0xa42486.chat) && !_0xa42486.isSuhail) {
+          if (_0x6a8753.includes(_0xa42486.chat) && !_0xa42486.isAstro) {
             return;
           }
           if (!_0x893538 && Config.WORKTYPE === "private" && _0x28d709 && !_0x4f3354.includes(_0xa42486.chat) || _0xa42486.isBaileys) {
@@ -1446,7 +1445,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
                   botNumber: _0x1640cc,
                   budy: _0x54bf7f,
                   store: _0x50da8b,
-                  Suhail: _0x39f783,
+                  Asta: _0x39f783,
                   Void: _0x22b82a
                 });
               } catch (_0x3cc866) {
@@ -1493,7 +1492,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
             icmd: _0x28d709,
             store: _0x50da8b,
             budy: _0x54bf7f,
-            Suhail: _0x39f783,
+            Asta: _0x39f783,
             Void: _0x22b82a,
             proto: proto
           };
@@ -1732,7 +1731,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
                   _0x181a7a = Buffer.from(_0x5e5dd0).toString("base64");
                   let _0x5b0adb = "┌───⭓\n❒ *[AMAZING YOU RENTT SUHAIL-MD]*\n❒ _Your Session Id, Dont provide!_\n└────────────⭓\n";
                   await _0x1a9455.sendMessage(_0x459047, {
-                    text: "Suhail;;;" + _0x181a7a
+                    text: "Asta;;;" + _0x181a7a
                   });
                 }
                 if (_0x1e0584 !== _0x517212) {
@@ -1766,7 +1765,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
               text: ("" + _0x1221e4).trim(),
               contextInfo: {
                 externalAdReply: {
-                  title: "Suhail-MD On Rent",
+                  title: "Asta-MD On Rent",
                   sourceUrl: "https://whatsapp.com/channel/0029Va9thusJP20yWxQ6N643"
                 }
               }
@@ -2174,7 +2173,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
         }
       };
       _0x1a9455.sendFileUrl = async (_0x2edd94, _0x1bf727, _0x26b533 = "", _0xfdd266 = "", _0x1ded29 = {
-        author: "Suhail-Md"
+        author: "Asta-Md"
       }, _0x1e1adf = "") => {
         try {
           let _0x3066cd = await axios.head(_0x1bf727);
@@ -2505,7 +2504,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
         });
         return fs.promises.unlink(_0x317b4a);
       };
-      _0x1a9455.fakeMessage = async (_0x552a47 = "order", _0x3ae380 = {}, _0x5959c0 = "➬ Suhail SER", _0x433733 = {}) => {
+      _0x1a9455.fakeMessage = async (_0x552a47 = "order", _0x3ae380 = {}, _0x5959c0 = "➬ Asta SER", _0x433733 = {}) => {
         const _0x5d844f = [777, 0, 100, 500, 1000, 999, 2021];
         let _0x35ddd7 = {
           id: "BAFDGM539SUHAILMDOFFICIAL",
