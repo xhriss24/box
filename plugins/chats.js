@@ -34,11 +34,12 @@ let {
         contextInfo: {
           ...(await message.bot.contextInfo("ACTIVE USERS", message.senderName))
         }
-      }, message);
+      }, "suhail", message);
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     }
   });
+  
   let commandHistory = [];
 
   smd({ on: "main" }, async (message, match, { icmd }) => {
