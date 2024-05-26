@@ -39,4 +39,56 @@ let {
       console.log({ error });
     }
   });
-  
+  let commandHistory = [];
+
+smd({ on: "main" }, async (message, match, { icmd }) => {
+  try {
+    if (icmd && message.cmd) {
+      commandHistory.push({
+        user: message.sender,
+        command: message.cmd,
+        timestamp: new Date()
+      });
+    }
+  } catch (error) {
+    await message.error(error + "\n\ncommand: listmessage", error, "*ERROR!*");
+  }
+});
+
+smd({
+  cmdname: "usage",
+  desc: "Counts the commands used by users after starting bot?",
+  category: "misc",
+  filename: __filename
+}, async (message) => {
+  try {
+    let users = [];
+    const usageCount = {};
+    commandHistory.forEach(({ user, command }) => {
+      if (!usageCount[user]) {
+        usageCount[user] = { commands: {}, count: 0 };
+        users.push(user);
+      }
+      if (!usageCount[user].commands[command]) {
+        usageCount[user].commands[command] = 1;
+      } else {
+        usageCount[user].commands[command]++;
+      }
+      usageCount[user].count++;
+    });
+    const userCommandsList = users.map((user, index) => {
+      const commands = usageCount[user].commands;
+      const commandsText = Object.entries(commands).map(([cmd, count]) => cmd + " " + (count <= 1 ? "" : "(" + count + ")")).join(", ");
+      return "*" + (index + 1) + " -- @" + user.split("@")[0] + "'s ➪ " + usageCount[user].count + "*  \n *LIST ➪*  _" + commandsText.trim() + "_";
+    }).join("\n\n");
+    const responseText = `*LIST OF COMMANDS USED TODAY!*\n_Note: Data will be reset when bot restarts!_\n\n*Total Users: _${users.length}_*\n*Total Command Used: _${commandHistory.length}_*\n\n${userCommandsList}\n\n${Config.caption}`.trim();
+    await message.send(responseText, {
+      contextInfo: {
+        ...(await message.bot.contextInfo("HISTORY"))
+      },
+      mentions: [...users]
+    }, "asta", message);
+  } catch (error) {
+    await message.error(error + "\n\ncommand: cmdused", error, "*ERROR!*");
+  }
+});
