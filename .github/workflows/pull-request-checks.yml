@@ -23,7 +23,8 @@ jobs:
         run: npm install
 
       - name: Run Tests
-        run: npm test
+        run: | 
+          npm test kill $(lsof -t -i:3000)
 
       - name: Verify Code Style (optional)
         run: npm run lint  # Replace with your code style verification command

@@ -24,7 +24,7 @@ jobs:
       - name: Run Tests
         run: |
           npm test
-          kill $(lsof -t -i:3000) # Change port number if needed
+          kill $(lsof -t -i:3000)
 
       - name: Deploy Application
         if: success()
