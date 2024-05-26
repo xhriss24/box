@@ -1,0 +1,33 @@
+name: Scheduled Node.js Dependency Updates
+
+on:
+  schedule:
+    # Define the schedule using cron syntax (every Sunday at midnight UTC)
+    - cron: '0 0 * * 0'
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Update Dependencies
+        run: npm update
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'Astropeda'
+          git config --global user.email 'astromedia0010@gmail.com'
+          git add package-lock.json
+          git commit -m "chore: update dependencies"
+          git push
