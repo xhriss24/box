@@ -119,10 +119,13 @@ smd({
   }
 });
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 smd({
   cmdname: "ping2",
-  type: "misc",
-  info: "Get random poetry lines"
+  alias: ["botstatus", "statusbot", "p2"],
+  type: "new",
+  info: "get randome poetry lines"
 }, async (message, match) => {
   try {
     const usage = process.memoryUsage();
@@ -152,6 +155,7 @@ smd({
     await message.error(`${error}\n\ncommand: ping2`, error, false);
   }
 });
+
 
 smd({
   cmdname: "myip",
