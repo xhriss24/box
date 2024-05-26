@@ -1,6 +1,4 @@
 let {
-  runtime,
-  formatp,
   prefix,
   smd,
   smdBuffer,
