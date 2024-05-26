@@ -75,7 +75,7 @@ smd(
       if (!_0x3211d9) {
         return await _0x2e919e.send("*provide text!*");
       }
-      const _0x1fe1f4 = "./plugins/meme.say/trumSay.png";
+      const _0x1fe1f4 = "./plugins/memes/trumSay.png";
       const _0x6eae84 = "./temp/trump.png";
       const _0x37de91 = 70;
       const _0x562e1c = 150;
@@ -119,7 +119,7 @@ smd(
         return await _0x196aaf.send("*provide text!*");
       }
       const { sleep: _0x1e5f8e } = require("../lib");
-      const _0x45716c = "./plugins/meme.say/mia.png";
+      const _0x45716c = "./plugins/memes/mia.png";
       const _0x349967 = "./temp/mia.png";
       const _0x205145 = 90;
       const _0x4fffeb = 120;
@@ -166,7 +166,7 @@ smd(
         return await _0x3e4e5f.send("*provide text!*");
       }
       const { sleep: _0xb12005 } = require("../lib");
-      const _0x340a07 = "./plugins/meme.say/johni.png";
+      const _0x340a07 = "./plugins/memes/johni.png";
       const _0x57864f = "./temp/johni.png";
       const _0x2df546 = 40;
       const _0x3436d9 = 210;
@@ -213,7 +213,7 @@ smd(
         return await _0x102280.send("*provide text!*");
       }
       const { sleep: _0x4a4a57 } = require("../lib");
-      const _0x17181a = "./plugins/meme.say/elon.jpg";
+      const _0x17181a = "./plugins/memes/elon.jpg";
       const _0x3ec84e = "./temp/elon.png";
       const _0x8750aa = 60;
       const _0x46941a = 130;
@@ -258,7 +258,7 @@ smd(
         return await _0x27b8ff.send("*provide text!*");
       }
       const { sleep: _0x445b13 } = require("../lib");
-      const _0xf83242 = "./plugins/meme.say/mark.png";
+      const _0xf83242 = "./plugins/memes/mark.png";
       const _0x564c44 = "./temp/mark.png";
       const _0xabdc6f = 30;
       const _0x452cba = 80;
@@ -305,7 +305,7 @@ smd(
         return await _0x510e3f.send("*provide text!*");
       }
       const { sleep: _0xb860d4 } = require("../lib");
-      const _0x395e = "./plugins/meme.say/ronaldo.png";
+      const _0x395e = "./plugins/memes/ronaldo.png";
       const _0x40e38d = "./temp/ronaldo.png";
       const _0x3ffcaa = 50;
       const _0x42b27d = 140;
@@ -352,7 +352,7 @@ smd(
         return await _0x570869.send("*provide text!*");
       }
       const { sleep: _0x569e63 } = require("../lib");
-      const _0x376671 = "./plugins/meme.say/modi.png";
+      const _0x376671 = "./plugins/memes/modi.png";
       const _0x421d98 = "./temp/modi.png";
       const _0x4fbe21 = 20;
       const _0x2c7e3b = 70;
@@ -399,7 +399,7 @@ smd(
         return await _0x3faf31.send("*provide text!*");
       }
       const { sleep: _0x1f1261 } = require("../lib");
-      const _0x2cb643 = "./plugins/meme.say/imran.png";
+      const _0x2cb643 = "./plugins/memes/imran.png";
       const _0x4909fc = "./temp/imran.png";
       const _0x396f03 = 20;
       const _0x17f44a = 70;
