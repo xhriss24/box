@@ -124,40 +124,32 @@ UserFunction(
     }
   }
 );
-const axios = require("axios");
-
 UserFunction({
   cmdname: "alexa",
   category: "new",
   use: "[text]",
   filename: __filename,
-  info: "chat with SimSimi Alexa AI!"
-}, async (message, text) => {
+  info: "chat with simsimi alexa ai!"
+}, async (message, match) => {
   try {
-    if (!text) {
-      return await message.reply(`Hi *${message.senderName}*, do you want to talk?`);
+    if (!match) {
+      return await message.reply("Hi *" + message.senderName + "*, do you want to talk?");
     }
-
-    const requestBody = {
-      text: text,
-      lc: "en",
-      key: ""
-    };
-
-    const response = await axios.post("https://api.simsimi.vn/v2/simtalk", requestBody, {
+    const Request = {
+      method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
-      }
-    });
-
-    const responseData = response.data;
-
-    if (responseData.status === "200" && responseData.message) {
-      await message.reply(responseData.message);
+      },
+      body: "text=" + encodeURIComponent(match) + "&lc=en&key="
+    };
+    const get = await fetch("https://api.simsimi.vn/v2/simtalk", Request);
+    const result = await get.json();
+    if (result.status === "200" && result.message) {
+      message.reply(result.message);
     } else {
-      await message.reply("*No Response!*");
+      message.reply("*No Responce!*");
     }
   } catch (error) {
-    await message.error(`${error}\n\ncommand: alexa`, error, false);
+    await message.error(error + "\n\ncommand : poetry", error, false);
   }
 });
