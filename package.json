@@ -6,7 +6,7 @@
    "type": "commonjs",
    "scripts": {
      "run": "pm2 start . --deep-monitoring --attach --name Asta || node .",
-     "asta": "pm2 start . --deep-monitoring --attach --name Asta || node .",
+     "test": "pm2 test . --deep-monitoring --attach --name Asta || node .",
      "start": "pm2 start . --attach --name Asta",
      "stop": "pm2 stop Asta",
      "old-heroku-postbuild": "git clone https://github.com/Astropeda/Asta-Md.git temp && mv temp/.git .git && rm -rf temp && npx puppeteer@latest install  --y",
