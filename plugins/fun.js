@@ -1558,7 +1558,6 @@ smd({
   }
 });
 const {
-  smd,
   sleep
 } = require(global.lib_dir || "../lib");
 let regix = /#suhail|#smd|#love|#cute|#luv|#world|#moon|#teddy|#hrt|#joy|#sad|#angry|#shy|#conf|#bored|#frust/g;
