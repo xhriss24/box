@@ -6,8 +6,7 @@ try {
         global.showUpdate = true;
     }
 }
-const UserFunction = require("../lib")
-const { mention, filter } = require(lib_dir + "/astropeda.js");
+const { mention, filter, UserFunction } = require("../lib");
 
 // Set auto reply for mention
 UserFunction({
