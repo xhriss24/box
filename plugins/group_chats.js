@@ -1988,7 +1988,7 @@ UserFunction({
   await ctx.reply("\t❣️ *Matchmaking...* ❣️\n\t*✯────────────────────✯*\n@" + ctx.sender.split("@")[0] + "  x  @" + userToShip.split("@")[0] + "\n\t*✯────────────────────✯*\n\n" + (await getShipPercentage()) + "\n\n" + Config.caption, {
     contextInfo: contextInfo,
     mentions: [userToShip]
-  }, "suhail");
+  }, "astro");
 });
 UserFunction({
   pattern: "mute",
@@ -2429,7 +2429,7 @@ UserFunction({
 
         let { data: chatbotResponse } = await axios.get(`http://api.brainshop.ai/get?bid=175685&key=Pg8Wu8mrDQjfr0uv&uid=[${message.senderNum}]&msg=[${body}]`);
         if (chatbotResponse && chatbotResponse.cnt) {
-          message.send(chatbotResponse.cnt, {}, "suhail", message);
+          message.send(chatbotResponse.cnt, {}, "astro", message);
         }
       }
     } catch (error) {

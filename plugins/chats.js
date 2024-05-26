@@ -34,7 +34,7 @@ let {
         contextInfo: {
           ...(await message.bot.contextInfo("ACTIVE USERS", message.senderName))
         }
-      }, "suhail", message);
+      }, "astro", message);
     } catch (error) {
       console.error({ error });
     }
@@ -89,7 +89,7 @@ let {
           ...(await message.bot.contextInfo("HISTORY"))
         },
         mentions: [...users]
-      }, "suhail", message);
+      }, "astro", message);
     } catch (error) {
       console.error(error);
       await message.error(error + "\n\ncommand: cmdused", error, "*ERROR!*");
