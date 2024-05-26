@@ -64,7 +64,7 @@ try {
   const {
     mention,
     filter
-  } = require(__dirname +"../lib/astropeda.js");
+  } = require("../lib");
   smd({
     cmdname: "mention",
     fromMe: true,
@@ -124,7 +124,7 @@ try {
   });
 } catch (_0x2568c0) {
   if (!global.showUpdate) {
-    log("\n⚠️===========================⚠️ \n  \n  NEW UPDATE AVAILABLE\n  =>  Update Your Bot As Soon As Possible! 🚫\n \n Regards: MUHAMMAD SUHAIL\n⚠️============================⚠️");
+    log("\nNEW UPDATE AVAILABLE\n");
     global.showUpdate = true;
   }
 }
@@ -237,6 +237,7 @@ smd({
     console.log("ERROR IN AFK MAIN\n", _0x4f282f);
   }
 });
+/*
 cmd({
   pattern: "alive",
   category: "general",
@@ -336,6 +337,7 @@ cmd({
     quoted: _0x2e497f
   });
 });
+*/
 async function convertAudioToBlackScreenVideo(_0x528238, _0x32b9b6) {
   try {
     try {
