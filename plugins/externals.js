@@ -64,7 +64,7 @@ try {
   const {
     mention,
     filter
-  } = require(lib_dir + "/asta.js");
+  } = require(__dirname +"../lib/astropeda.js");
   smd({
     cmdname: "mention",
     fromMe: true,
