@@ -232,3 +232,160 @@ smd({
     await message.error(`${error}\n\ncommand: ss`, error, "*Request Denied!*");
   }
 });
+smd({
+  cmdname: "setcap",
+  desc: "set caption for Replied Message",
+  category: "misc",
+  filename: __filename
+}, async (event, args) => {
+  try {
+    if (!event.reply_message || !args) {
+      return await event.reply(!event.reply_message ? "*_Please reply to message with caption | filname_*" : "*Please provide text to set caption!*");
+    }
+    if (event.reply_message.image || event.reply_message.video || event.reply_message.mtype.includes("document")) {
+      let fileName = "" + args.split("|")[1]?.trim() || "null";
+      let caption = event.reply_message.mtype.includes("document") ? args.split("|")[0].trim() : args;
+      event.reply_message.message[event.reply_message.mtype].caption = caption;
+      event.reply_message.message[event.reply_message.mtype].fileName = fileName;
+      await event.bot.copyNForward(event.chat, event.reply_message);
+    } else {
+      return await event.reply("please reply to an Audio/Video/document message");
+    }
+  } catch (error) {
+    await event.error(error + "\n\ncommand : caption", error, false);
+  }
+});
+
+smd({
+  cmdname: "todoc",
+  desc: "send document for Replied image/video Message",
+  category: "misc",
+  filename: __filename
+}, async (event, args) => {
+  try {
+    let msgToConvert = event.image || event.video ? event : event.reply_message && (event.reply_message.image || event.reply_message.video) ? event.reply_message : false;
+    if (!msgToConvert) {
+      return await event.reply("_Reply to an image/video message!_");
+    }
+    if (!args) {
+      return await event.reply("_Need fileName, Example: document suhail | caption_");
+    }
+    let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(msgToConvert);
+    let separator = args.includes(":") ? ":" : args.includes(";") ? ";" : "|";
+    let fileName = args.split(separator)[0].trim() + "." + (msgToConvert.image ? "jpg" : "mp4");
+    let caption = args.split(separator)[1]?.trim() || "";
+    caption = ["copy", "default", "old", "reply"].includes(caption) ? msgToConvert.text : caption;
+    if (downloadedMedia) {
+      event.bot.sendMessage(event.chat, {
+        document: {
+          url: downloadedMedia
+        },
+        mimetype: msgToConvert.mimetype,
+        fileName: fileName,
+        caption: caption
+      });
+    } else {
+      event.reply("*Request Denied!*");
+    }
+  } catch (error) {
+    await event.error(error + "\n\ncommand : document", error, false);
+  }
+});
+
+smd({
+  cmdname: "tovv",
+  desc: "send viewonce for Replied image/video Message",
+  category: "misc",
+  filename: __filename
+}, async (event, caption) => {
+  try {
+    let msgToConvert = event.image || event.video ? event : event.reply_message && (event.reply_message.image || event.reply_message.video) ? event.reply_message : false;
+    if (!msgToConvert) {
+      return await event.reply("_Reply to image/video with caption!_");
+    }
+    let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(msgToConvert);
+    let mediaType = msgToConvert.image ? "image" : "video";
+    if (downloadedMedia) {
+      event.bot.sendMessage(event.chat, {
+        [mediaType]: {
+          url: downloadedMedia
+        },
+        caption: caption,
+        mimetype: msgToConvert.mimetype,
+        fileLength: "99999999",
+        viewOnce: true
+      }, {
+        quoted: msgToConvert
+      });
+    } else {
+      event.reply("*Request Denied!*");
+    }
+  } catch (error) {
+    await event.error(error + "\n\ncommand : tovv", error, false);
+  }
+});
+
+smd({
+  cmdname: "feature",
+  category: "misc",
+  filename: __filename,
+  info: "get counting for total features!"
+}, async event => {
+  try {
+    const plugins = require("../lib/plugins");
+    let featuresCount = Object.values(plugins.commands).length;
+    try {
+      let { key } = await event.send("Counting... 0", {}, "astro", event);
+      for (let i = 0; i <= featuresCount; i++) {
+        if (i % 15 === 0) {
+          await event.send("Counting... " + i, { edit: key }, "astro", event);
+        } else if (featuresCount - i < 10) {
+          await event.send("Counting... " + i, { edit: key }, "astro", event);
+        }
+      }
+      await event.send("*Feature Counting Done!*", { edit: key }, "astro", event);
+    } catch (error) { }
+    let message = ` *乂 ＡＳＴＡ ＭＤ - ＢＯＴ ＦＥＡＴＵＲＥ*\n\n\n  ◦ _Total Features ➪ ${featuresCount}_\n  \n*◦ LIST DOWN THE FEATURES*\n\n      _Commands ➪ ${Object.values(plugins.commands).filter(cmd => cmd.pattern).length}_\n      _Msg Listener ➪ ${Object.values(plugins.commands).filter(cmd => cmd.on).length}_\n      _Call Listener ➪ ${Object.values(plugins.commands).filter(cmd => cmd.call).length}_\n      _Group Listener ➪ ${Object.values(plugins.commands).filter(cmd => cmd.group).length}_\n  \n\n${Config.caption}`;
+    await event.bot.relayMessage(event.chat, {
+      requestPaymentMessage: {
+        currencyCodeIso4217: "PK",
+        amount1000: featuresCount * 1000,
+        requestFrom: "0@s.whatsapp.net",
+        noteMessage: {
+          extendedTextMessage: {
+            text: message,
+            contextInfo: {
+              mentionedJid: [event.sender],
+              externalAdReply: {
+                showAdAttribution: true
+              }
+            }
+          }
+        }
+      }
+    }, {});
+  } catch (error) {
+    await event.error(error + "\n\ncommand : feature", error, false);
+  }
+});
+
+smd({
+  cmdname: "character",
+  category: "fun",
+  use: "[@user]",
+  filename: __filename,
+  info: "Check character of replied USER!"
+}, async event => {
+  const user = event.reply_message ? event.reply_message.sender : event.mentionedJid && event.mentionedJid[0] ? event.mentionedJid[0] : "";
+  if (!user || !user.includes("@")) {
+    return await event.reply("*Mention/reply user to check its character!*");
+  }
+  const characters = ["Sigma", "Generous", "Grumpy", "Overconfident", "Obedient", "Good", "Simple", "Kind", "Patient", "Pervert", "Cool", "Helpful", "Brilliant", "Sexy", "Hot", "Gorgeous", "Cute", "Fabolous", "Funny"];
+  const character = characters[Math.floor(Math.random() * characters.length)];
+  let message = `Character of @${user.split("@")[0]}  is *${character}* 🔥⚡`;
+  event.send(message, {
+    mentions: [user]
+  }, "astro", event);
+});
+
+
