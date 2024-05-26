@@ -45,7 +45,7 @@ UserFunction({
         const sender = message.sender;
         const { email: login, domain } = secmailData[sender] || {};
         if (!login) {
-            return await message.reply("*You haven't created a temporary email.*\n*Use ${prefix}tempmail to create an email first!*");
+            return await message.reply("*You haven't created a temporary email.*\n*Use "+prefix+"tempmail to create an email first!*");
         }
         const emails = await tempmail.mails(login, domain);
         if (!emails || !emails[0] || emails.length === 0) {
