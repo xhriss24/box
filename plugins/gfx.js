@@ -6,7 +6,7 @@ let gfxx = [
     "gfx8", "gfx9", "gfx10", "gfx11", "gfx12", "gfx13", "gfx14"
 ];
 
-let GfxFunc = async (context, { Void, text, smd }, sendError = true) => {
+let GfxFunc = async (context, { Void = '', text = '', smd = '' }, sendError = true) => {
     try {
         text += ": ser";
         const exampleUsage = `Example  : *${prefix}${smd}* Asta`;
@@ -97,7 +97,7 @@ for (let cmd of gfxx) {
         cmdname: cmd,
         infocmd: "create a gfx logo for text",
         type: "gfx"
-    }, async (context, text, { smd, Void }) => {
+    }, async (context, text, { smd = '', Void = '' }) => {
         try {
             GfxFunc(context, { text, Void, smd });
         } catch (error) {
@@ -110,13 +110,12 @@ smd({
     cmdname: "gfx",
     infocmd: "create gfx logo for text",
     type: "gfx"
-}, async (context, text, { smd, Void }) => {
+}, async (context, text, { smd = '', Void = '' }) => {
     try {
         const formatInstruction = `*Separate the text with _:_ sign!*\n*Example : ${prefix}${smd} Asta _:_ Bot*`;
 
         if (!text) {
-            const gfxMenu =
-                `
+            const gfxMenu = `
 ┌───〈 *ɢꜰx ᴍᴇɴᴜ*  〉───◆
 │╭─────────────···▸
 ┴│▸
