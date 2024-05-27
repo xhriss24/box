@@ -13,7 +13,7 @@ const {
       let _0x478253 = "Example  : *" + (prefix + _0x1fed9f) + "* Asta";
       let _0x12ae56 = "*Separate the text with ':' sign*\n*Example : " + (prefix + _0x1fed9f) + " Asta : Bot*";
       let _0x36f282 = _0x3930d1.split(":")[0];
-      let _0x2d2a89 = _0x1fed9f.toLowerCase();
+      let _0x2d2a89 = _0x1fed9f();
       switch (_0x2d2a89) {
         case "gfx1":
           if (!_0x36f282) {
