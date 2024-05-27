@@ -93,8 +93,8 @@ amd(
       if (!_0xb45f41) {
         return await _0xd700b1.send(
           "*_provide text to update profile status!_*\n*_Example: " +
-            prefix +
-            "bio asta md_*"
+          prefix +
+          "bio asta md_*"
         );
       }
       await _0xd700b1.bot.updateProfileStatus(_0xb45f41);
@@ -244,8 +244,8 @@ cmd(
       if (!_0x4113fc) {
         return await _0x1de930.reply(
           "*Give Coordinates To Send Location!*\n *Ex: " +
-            prefix +
-            "location 24.121231,55.1121221*"
+          prefix +
+          "location 24.121231,55.1121221*"
         );
       }
       let _0x1622ee = parseFloat(_0x4113fc.split(",")[0]) || "";
@@ -257,11 +257,11 @@ cmd(
       }
       await _0x1de930.reply(
         "*----------LOCATION------------*\n```Sending Location Of Given Data:\n Latitude: " +
-          _0x1622ee +
-          "\n Longitude: " +
-          _0x4c75f7 +
-          "```\n\n" +
-          Config.caption
+        _0x1622ee +
+        "\n Longitude: " +
+        _0x4c75f7 +
+        "```\n\n" +
+        Config.caption
       );
       return await _0x1de930.sendMessage(
         _0x1de930.jid,
@@ -355,8 +355,8 @@ amd(
           "\nMade : " +
           (_0x433157.creation
             ? moment(_0x433157.creation * 1000)
-                .tz("Asia/Kolkata")
-                .format("DD/MM/YYYY HH:mm:ss")
+              .tz("Asia/Kolkata")
+              .format("DD/MM/YYYY HH:mm:ss")
             : _0x433157.creation) +
           "\nMember : " +
           (_0x433157.participants.length || 0) +
@@ -392,8 +392,8 @@ cmd(
       if (!_0x4158fc) {
         return _0xcffaeb.reply(
           "Please Give Me User Name, \n *Example : " +
-            prefix +
-            "vcard Astropeda* "
+          prefix +
+          "vcard Astropeda* "
         );
       }
       var _0x423556 = _0x4158fc.split(" ");
@@ -456,7 +456,6 @@ amd(
 amd(
   {
     pattern: "forward",
-    alias: ["send"],
     desc: "forward your messages in jid",
     type: "whatsapp",
   },
@@ -469,8 +468,8 @@ amd(
       if (!_0x363cd7 || !_0x363cd7[0]) {
         return await _0x402cfa.send(
           "*Provide jid to forward message*\n*use _" +
-            prefix +
-            "jid,_ to get jid of users!*"
+          prefix +
+          "jid,_ to get jid of users!*"
         );
       }
       for (let _0x4a5ab9 = 0; _0x4a5ab9 < _0x363cd7.length; _0x4a5ab9++) {
@@ -498,10 +497,10 @@ amd(
       let _0x3489cf = _0x1ed3b3.reply_message
         ? _0x1ed3b3.reply_message.sender
         : !_0x1ed3b3.isGroup
-        ? _0x1ed3b3.from
-        : _0x1ed3b3.mentionedJid[0]
-        ? _0x1ed3b3.mentionedJid[0]
-        : "";
+          ? _0x1ed3b3.from
+          : _0x1ed3b3.mentionedJid[0]
+            ? _0x1ed3b3.mentionedJid[0]
+            : "";
       if (!_0x3489cf && !_0x3489cf.includes("@s.whatsapp.net")) {
         return await _0x1ed3b3.reply("*Uhh dear, reply/mention an User*");
       }
@@ -532,10 +531,10 @@ amd(
       let _0xe86e54 = _0xdd6403.reply_message
         ? _0xdd6403.reply_message.sender
         : !_0xdd6403.isGroup
-        ? _0xdd6403.from
-        : _0xdd6403.mentionedJid[0]
-        ? _0xdd6403.mentionedJid[0]
-        : "";
+          ? _0xdd6403.from
+          : _0xdd6403.mentionedJid[0]
+            ? _0xdd6403.mentionedJid[0]
+            : "";
       if (!_0xe86e54 && !_0xe86e54.includes("@s.whatsapp.net")) {
         return await _0xdd6403.reply("*Uhh dear, reply/mention an User*");
       }
@@ -558,41 +557,41 @@ amd(
   }
 );
 cmd({
-    pattern: "vv",
-    desc: "download viewOnce Message.",
-    category: "whatsapp",
-    use: "<query>",
-    filename: __filename
-  }, async (event, query) => {
-    try {
-      let viewOnceMessage = false;
-      if (event.reply_message) {
-        if (event.reply_message.viewOnce || (event.device === "ios" && /audioMessage|videoMessage|imageMessage/g.test(event.reply_message.mtype))) {
-          viewOnceMessage = event.reply_message;
-        }
+  pattern: "vv",
+  desc: "download viewOnce Message.",
+  category: "whatsapp",
+  use: "<query>",
+  filename: __filename
+}, async (event, query) => {
+  try {
+    let viewOnceMessage = false;
+    if (event.reply_message) {
+      if (event.reply_message.viewOnce || (event.device === "ios" && /audioMessage|videoMessage|imageMessage/g.test(event.reply_message.mtype))) {
+        viewOnceMessage = event.reply_message;
       }
-      viewOnceMessage.mtype = viewOnceMessage.mtype2;
-      if (!viewOnceMessage) {
-        return event.reply("```Please Reply A ViewOnce Message```");
-      }
-      let quotedMessage = {
-        key: viewOnceMessage.key,
-        message: {
-          conversation: "```[VIEWONCE FOUND DOWNLOAD 100%]```",
-        },
-      };
-      let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(viewOnceMessage.msg);
-      await event.bot.sendMessage(
-        event.sender, // Send to user's personal chat
-        {
-          [viewOnceMessage.mtype2.split("Mess")[0]]: {
-            url: downloadedMedia,
-          },
-          caption: viewOnceMessage.body,
-        },
-        { quoted: quotedMessage }
-      );
-    } catch (error) {
-      await event.error(error + "\n\ncommand: vv", error);
     }
-  });
+    viewOnceMessage.mtype = viewOnceMessage.mtype2;
+    if (!viewOnceMessage) {
+      return event.reply("```Please Reply A ViewOnce Message```");
+    }
+    let quotedMessage = {
+      key: viewOnceMessage.key,
+      message: {
+        conversation: "```[VIEWONCE FOUND DOWNLOAD 100%]```",
+      },
+    };
+    let downloadedMedia = await event.bot.downloadAndSaveMediaMessage(viewOnceMessage.msg);
+    await event.bot.sendMessage(
+      event.sender, // Send to user's personal chat
+      {
+        [viewOnceMessage.mtype2.split("Mess")[0]]: {
+          url: downloadedMedia,
+        },
+        caption: viewOnceMessage.body,
+      },
+      { quoted: quotedMessage }
+    );
+  } catch (error) {
+    await event.error(error + "\n\ncommand: vv", error);
+  }
+});
