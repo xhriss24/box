@@ -13,7 +13,7 @@ global.blockJids= process.env.BLOCK_JID || "null"
 global.DATABASE_URL = process.env.DATABASE_URL || ""
 
 global.timezone= process.env.TZ || process.env.TIME_ZONE || "Africa/Lagos";
-global.github=process.env.GITHUB|| "https://github.com/Astropeda/Asta-Md";
+global.github=process.env.GITHUB|| "https://github.com/Emperordagoat/Asta-Md";
 global.gurl  =process.env.GURL  || "https://whatsapp.com/channel/0029VaPGt3QEwEjpBXT4Rv0z";
 global.website=process.env.GURL || "https://whatsapp.com/channel/0029VaPGt3QEwEjpBXT4Rv0z" ; 
 global.THUMB_IMAGE = process.env.THUMB_IMAGE || process.env.IMAGE || "https://i.imgur.com/JMsAFRD.jpeg" ;
@@ -58,7 +58,7 @@ global.SESSION_ID = process.env.SESSION_ID ||  ""
 
 module.exports = {
 
-  menu: process.env.MENU || "v1", 
+  menu: process.env.MENU || "", 
 
   HANDLERS: process.env.PREFIX  || "/",
   BRANCH  : process.env.BRANCH  || "main",
