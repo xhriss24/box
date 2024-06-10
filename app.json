@@ -127,11 +127,6 @@
       "value": "",
       "required": false
     },
-    "MONGODB_URI": {
-      "description": "MongoDb Key",
-      "value": "",
-      "required": false
-    },
     "DATABASE_URL": {
       "description": "Database URL to Store Files",
       "value": "",
