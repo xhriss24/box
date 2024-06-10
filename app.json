@@ -95,8 +95,8 @@
       "value": "2348039607375"
     },
     "SESSION_ID": {
-      "description": "put your SESSION_ID here.",
-      "value": ""
+      "description": "put your SESSION_ID here. note do not clear anything here",
+      "value": "Astro;;;"
     },
     "OPENAI_API_KEY": {
       "description": "put your OPENAI api key here.Get it from beta.openai.com ",
