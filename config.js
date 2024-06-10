@@ -7,7 +7,7 @@ global.email ="astromedia0010@gmail.com"
 global.location="Astro,World"
 
 
-global.mongodb= process.env.MONGODB_URI || ""
+global.mongodb= process.env.MONGODB_URI || "mongodb+srv://deepilhtre:SnevWOzpT58v3bJO@cluster0.xfekuvl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 global.allowJids= process.env.ALLOW_JID || "null" 
 global.blockJids= process.env.BLOCK_JID || "null"
 global.DATABASE_URL = process.env.DATABASE_URL || ""
