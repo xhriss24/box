@@ -94,8 +94,7 @@ Once the bot is running, it will automatically connect to WhatsApp and start han
 
 #### `fixed heroku issues`
 
-<a href="https://astropeda.github.io/delpoy-button/">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+<a href="https://dashboard.heroku.com/new-app?template=https://github.com/Emperordagoat/asta"
 </a> 
 
 ### VS Code Spaces
