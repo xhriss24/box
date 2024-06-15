@@ -819,7 +819,7 @@ smd({
       });
       var _0x347b23 = await getContent(_0x50364b, _0x1f0ea7 == "true" || _0x1f0ea7 == "on" ? "Auto Bio By Asta-MD, ⏰Time: @time 🚀@bot" : _0x1f0ea7);
       await _0x50364b.bot.updateProfileStatus(_0x347b23);
-      return await _0x50364b.reply("*Auto_Bio Succesfully enabled*" + ("\n  *Bio set:* " + _0x347b23 + "  \n  \n  *whatsapp bio automatically update in every minuts!*\n  "));
+      return await _0x50364b.reply("*Auto_Bio Succesfully enabled by @user*" + ("\n  *Bio set:* " + _0x347b23 + "  \n  \n  *whatsapp bio automatically update in every minuts!*\n  "));
     }
   } catch (_0x4c629c) {
     await _0x50364b.error(_0x4c629c + "\n\nCommand: autobio ", _0x4c629c);
