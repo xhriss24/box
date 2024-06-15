@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to **Asta Md**, an open-source WhatsApp bot developed by Astro. This bot leverages the latest **Baileys** library to offer a simple yet powerful interface for automating interactions on WhatsApp. Whether you're looking to automate customer service, send notifications, or simply have some fun, Asta Md is the perfect starting point.
+Welcome to **Asta Md**, an open-source WhatsApp bot developed by Emperor. This bot leverages the latest **Baileys** library to offer a simple yet powerful interface for automating interactions on WhatsApp. Whether you're looking to automate customer service, send notifications, or simply have some fun, Asta Md is the perfect starting point.
 
 ## Features
 
@@ -19,7 +19,7 @@ This is Important To Run Your Bot
 
 <a href="https://emp-session-8dc9c5fd354f.herokuapp.com"><img title="PAIR NEW ASTA" src="https://img.shields.io/badge/GET SESSION-h?color=indigo&style=for-the-badge&logo=msi"></a>
 
-<a href="https://github.com/Emperordagoat2/asta/fork"><img title="Fork Repo" src="https://img.shields.io/badge/Fork Repo-h?color=black&style=for-the-badge&logo=stackshare"></a>
+<a href="https://github.com/Emperordagoat2/asta/fork"><img title="Fork Repo" src="https://img.shields.io/badge/Fork Repo-h?color=brown&style=for-the-badge&logo=stackshare"></a>
 
 
 
