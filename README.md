@@ -12,14 +12,14 @@ Welcome to **Asta Md**, an open-source WhatsApp bot developed by Astro. This bot
 - **API Integration**: Seamlessly integrate with other APIs to expand functionality.
 
 ## Getting Started
-### Get Your Session
+### Get Your Session(session id fixed😋😋)
 #### Please Star Our Repo For Courage ❤️
 
 This is Important To Run Your Bot
 
-<a href="https://emp-session-8dc9c5fd354f.herokuapp.com"><img title="PAIR NEW ASTA" src="https://img.shields.io/badge/GET SESSION-h?color=black&style=for-the-badge&logo=msi"></a>
+<a href="https://emp-session-8dc9c5fd354f.herokuapp.com"><img title="PAIR NEW ASTA" src="https://img.shields.io/badge/GET SESSION-h?color=indigo&style=for-the-badge&logo=msi"></a>
 
-<a href="https://github.com/Astropeda/Asta-Md/fork"><img title="Fork Repo" src="https://img.shields.io/badge/Fork Repo-h?color=black&style=for-the-badge&logo=stackshare"></a>
+<a href="https://github.com/Emperordagoat2/asta/fork"><img title="Fork Repo" src="https://img.shields.io/badge/Fork Repo-h?color=black&style=for-the-badge&logo=stackshare"></a>
 
 
 
@@ -94,7 +94,7 @@ Once the bot is running, it will automatically connect to WhatsApp and start han
 
 #### `fixed heroku issues Emperor fix🎗`
 
-<a href="https://dashboard.heroku.com/new-app?template=https://github.com/Emperordagoat/asta">
+<a href="https://dashboard.heroku.com/new-app?template=https://github.com/Emperordagoat2/asta">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a> 
 
