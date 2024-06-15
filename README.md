@@ -92,7 +92,7 @@ Once the bot is running, it will automatically connect to WhatsApp and start han
 
 #### Heroku Docker Delpoy
 
-#### `fixed heroku issues`
+#### `fixed heroku issues Emperor fix🎗`
 
 <a href="https://dashboard.heroku.com/new-app?template=https://github.com/Emperordagoat/asta">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
