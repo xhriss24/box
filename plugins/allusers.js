@@ -488,7 +488,7 @@ smd({
         let {
             data: _0x44f98c
         } = await axios.get("https://api.github.com/repos/Emperordagoat2/asta");
-        let _0x1c73f9 = ("\nSimple WhatsApp Bot By Astropeda Team.* Used By" + Config.ownername + "*.\n\n  *❲❒❳ Stars:* " + (_0x44f98c?.stargazers_count || "120+") + " stars\n  *❲❒❳ Forks:* " + (_0x44f98c?.forks_count || "500+") + " forks\n  *❲❒❳ Creator:* Astropeda\n  *❲❒❳ Created:* " + (_0x44f98c?.created_at || "Unknown") + "\n  *❲❒❳ Repo:* _https://github.com/Astropeda/Asta-Md_\n" + (Config.caption ? "\n\n" + Config.caption : "")).trim();
+        let _0x1c73f9 = ("\nSimple WhatsApp Bot By Emperor Team.* Used By" + Config.ownername + "*.\n\n  *❲❒❳ Stars:* " + (_0x44f98c?.stargazers_count || "120+") + " stars\n  *❲❒❳ Forks:* " + (_0x44f98c?.forks_count || "500+") + " forks\n  *❲❒❳ Creator:* Astropeda\n  *❲❒❳ Created:* " + (_0x44f98c?.created_at || "Unknown") + "\n  *❲❒❳ Repo:* _https://github.com/Astropeda/Asta-Md_\n" + (Config.caption ? "\n\n" + Config.caption : "")).trim();
         return await _0x45da98.sendUi(_0x45da98.jid, {
             caption: _0x1c73f9
         });
