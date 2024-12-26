@@ -1170,7 +1170,7 @@ const Rentt = async (_0x1b984f, _0x8bf7a7, _0x181a7a = "", _0x235024 = {}) => {
       await _0x311b10(_0x3c1a40, "file");
     } catch (_0x5401eb) {}
     if (_0x235024.type === "session") {
-      var _0xc4323e = ("" + _0x235024[_0x235024.type]).replace(/^SESSION_\d{2}_\d{2}_\d{2}_\d{2}_/, "").replace(/Secktor;;;/gi, "").replace(/Vorterx;;;/gi, "").replace(/Asta;;;/gi, "").replace(/^SUHAIL_\d{2}_\d{2}_\d{2}_\d{2}_/, "").trim();
+      var _0xc4323e = ("" + _0x235024[_0x235024.type]).replace(/^SESSION_\d{2}_\d{2}_\d{2}_\d{2}_/, "").replace(/Secktor;;;/gi, "").replace(/Vorterx;;;/gi, "").replace(/ZAX;;;/gi, "").replace(/^SUHAIL_\d{2}_\d{2}_\d{2}_\d{2}_/, "").trim();
       var _0x3358ad = {};
       if (_0xc4323e && /guru/gi.test(_0xc4323e) && _0xc4323e.length < 50) {
         let _0x5f44c2 = global.gurupaste || "https://pastebin.guruapi.tech/pastes?action=getpaste&id=";
